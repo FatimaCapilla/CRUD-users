@@ -42,3 +42,18 @@ async function postUser() {
     return result
 
 }
+
+//Método POST C (create) del CRUD con formulario
+async function createUser() {
+    const formUser = document.getElementById("users-form")
+    const newUser = {
+        "name": formUser.elements[0].value,
+        "email": formUser.elements[1].value
+    };
+    
+    const result = await fetch(`http://localhost:3000/users`, {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(newUser),
+    });
+}
